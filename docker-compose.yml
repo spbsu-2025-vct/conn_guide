@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:14
+    ports: ["5432:5432"]
+    environment:
+      POSTGRES_PASSWORD: postgres
+
+  mariadb:
+    image: mariadb:10.6
+    ports: ["3306:3306"]
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
+  neo4j:
+    image: neo4j:4.4
+    ports: ["7474:7474", "7687:7687"]
+    environment:
+      NEO4J_AUTH: neo4j/password
+
+  mongodb:
+    image: mongo:6.0
+    ports: ["27017:27017"]
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:23.3
+    ports: ["8123:8123", "9000:9000"]
+
+  flask_app:
+    build: .
+    ports: ["5000:5000"]
+    environment:
+      FLASK_ENV: development
+    depends_on:
+      - postgres
+      - mariadb
+      - neo4j
+      - mongodb
+      - clickhouse

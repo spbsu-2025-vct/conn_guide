@@ -1,0 +1,6 @@
+Flask==2.3.2
+psycopg2-binary==2.9.6
+mysql-connector-python==8.0.33
+neo4j==5.8.0
+pymongo==4.3.3
+clickhouse-driver==0.2.4
