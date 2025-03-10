@@ -4,7 +4,7 @@ import yaml
 app = Flask(__name__)
 
 # Load config
-with open('config/config.yaml', 'r') as f:
+with open('config.yml', 'r') as f:
     config = yaml.safe_load(f)
 
 app.config['DATABASES'] = config['databases']

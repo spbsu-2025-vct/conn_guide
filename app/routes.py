@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+from app import app
 from app.db_connectors import (
     postgres_connector, mariadb_connector, 
     neo4j_connector, mongodb_connector, clickhouse_connector
